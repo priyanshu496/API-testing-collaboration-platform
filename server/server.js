@@ -5,15 +5,12 @@ import axios from "axios";
 
 const app = express();
 app.use(cors());
-app.use(express.json({ limit: '10mb' }));
+app.use(express.json({ limit: '50mb' }));
 
 const port = process.env.PORT || 5000;
 
 // MongoDB connection with more detailed error handling
-mongoose.connect('mongodb://127.0.0.1:27017/apidata', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+mongoose.connect('mongodb://127.0.0.1:27017/apidata')
 .then(() => {
   console.log("Database connection successful!!!");
   console.log("Connected to database:", mongoose.connection.name);
